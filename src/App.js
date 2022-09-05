@@ -7,7 +7,8 @@ import Navigation from "./routes/navigation/navigation.component";
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
 import SignUpPage from "./routes/sign-up/sign-up.component";
-import SignInPage from "./routes/sign-in/sign-in.component";
+import AuthPage from "./routes/auth/auth.component";
+import CheckOutPage from "./routes/checkout/checkout.component";
 
 /**
  *
@@ -24,7 +25,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
       </Route>
     </Routes>
   );

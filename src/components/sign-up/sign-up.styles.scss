@@ -1,0 +1,23 @@
+@import url("../sign-in/sign-in.styles.scss");
+
+.form-container {
+  & h2 {
+    margin-block-end: 15px;
+  }
+
+  & .button-container {
+    width: 350px;
+    margin-block-start: 15px;
+    margin-block-end: 20px;
+  }
+
+  & .text-sm {
+    font-size: 85%;
+    color: grey;
+    text-decoration: none;
+  }
+
+  & .google-sign-in {
+    margin-block: 10px;
+  }
+}

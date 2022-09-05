@@ -1,4 +1,5 @@
 // jshint esversion:6
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import SignUp from "../../components/sign-up/sign-up.component";
 
@@ -13,7 +14,11 @@ function SignUpPage() {
     <Container style={container_style}>
       <SignUp />
       <div className="check w-100 text-center mt-2">
-        Already have an account? Log In
+        Already have an account?
+        <Link to="/auth" style={{ fontWeight: "bold", color: "#4285f4" }}>
+          {" "}
+          Log In
+        </Link>
       </div>
     </Container>
   );

@@ -2,12 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.scss";
-import App from "./App";
-
 /* To enable routing on react components */
 import { BrowserRouter } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.scss";
+
+import App from "./App";
+
+/* Get Provider to manage state */
+import { UserProvider } from "./contexts/user.context";
+import { ProductsProvider } from "./contexts/products.context";
+import { ToggleCartContextProvider } from "./contexts/toggleCart.component";
 
 /* Get root element to render React on your webpage */
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +21,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <ProductsProvider>
+          <ToggleCartContextProvider>
+            <App />
+          </ToggleCartContextProvider>
+        </ProductsProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

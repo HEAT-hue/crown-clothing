@@ -1,0 +1,1 @@
+1. We use useEffect to prevent infinite re-rendering because anytime a state changes, the component re-renders. This will re-run the function again, thus making new request to the API. To avoid this issue, we would want to use a useEffect hook and set a dependecy list, so that the useEffect will run only once and not cause an infinite re-rendering.
