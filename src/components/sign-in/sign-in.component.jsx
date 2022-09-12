@@ -90,14 +90,11 @@ function SignIn() {
           I forgot my password
         </Link>
 
-        <Button children="Sign IN" type="submit" />
+        <Button type="submit">Sign IN</Button>
 
         <p>
           Don't have an account,
-          <Link to="/sign-up" style={{ color: "#4285f4" }}>
-            {" "}
-            Sign Up here
-          </Link>
+          <Link to="/sign-up"> Sign Up here</Link>
         </p>
       </div>
     </form>

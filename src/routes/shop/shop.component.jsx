@@ -1,28 +1,27 @@
 // jshint esversion:6
 /* React context import */
-import { useContext } from "react";
+import { useContext} from "react";
 
 /* Get styles*/
 import "./shop.styles.scss";
 
 /* Import created Product context */
-import { ProductsContext } from "../../contexts/products.context";
+import { CategoriesContext } from "../../contexts/categories.context";
 
-/* Import Product component */
-import ProductCard from "../../components/product-card/product-card.component";
+import CategoryPreview from "../../components/category-preview/category-preview.component";
 
 function Shop() {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
 
   return (
-    <>
-      <h2>This is a shop route</h2>
-      <div className="products-container">
-        {products.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
-        })}
-      </div>
-    </>
+    <div className="shop-container">
+      {Object.keys(categoriesMap).map((title) => {
+        const products = categoriesMap[title];
+        return (
+          <CategoryPreview key={title} title={title} products={products} />
+        );
+      })}
+    </div>
   );
 }
 

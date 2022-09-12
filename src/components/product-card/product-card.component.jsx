@@ -2,7 +2,7 @@
 import "./product-card.styles.scss";
 import { useContext } from "react";
 
-import { ToggleCartContext } from "../../contexts/toggleCart.component";
+import { ToggleCartContext } from "../../contexts/toggleCart.context";
 import Button from "../button/button.component";
 
 const ProductCard = (props) => {

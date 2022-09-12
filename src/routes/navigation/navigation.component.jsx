@@ -16,11 +16,11 @@ import { signOutUser } from "../../utils/firebase/firebaseAuth.util";
 
 /* Import Contexts */
 import { UserContext } from "../../contexts/user.context";
-import { ToggleCartContext } from "../../contexts/toggleCart.component";
+import { ToggleCartContext } from "../../contexts/toggleCart.context";
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-  const { toggle, setToggle } = useContext(ToggleCartContext);
+  const { toggle } = useContext(ToggleCartContext);
 
   function handleSignOut() {
     /* Auth state changes, sets current user to null*/
