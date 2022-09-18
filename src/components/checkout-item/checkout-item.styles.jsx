@@ -26,7 +26,9 @@ export const Name = styled.span`
   width: 23%;
 `;
 
-export const Price = styled(Name);
+export const Price = styled(Name)`
+  color: black;
+`;
 
 export const Quantity = styled(Name)`
   display: flex;
