@@ -1,5 +1,5 @@
 // jshint esversion:6
-import { Fragment } from "react";
+import { Container } from "react-bootstrap";
 import SignIn from "../../components/sign-in/sign-in.component";
 
 const styles = {
@@ -9,14 +9,20 @@ const styles = {
   flexDirection: "column",
 };
 
+const container_style = {
+  maxWidth: "400px",
+  width: "40%",
+  minWidth: "350px",
+};
+
 function AuthPage() {
   return (
-    <>
+    <Container style={container_style}>
+      <h2>Sign in Page</h2>
       <div style={styles}>
-        <h2>Sign in Page</h2>
         <SignIn />
       </div>
-    </>
+    </Container>
   );
 }
 

@@ -1,6 +1,8 @@
 @import url("../sign-in/sign-in.styles.scss");
 
 .form-container {
+  width: auto;
+
   & h2 {
     margin-block-end: 15px;
   }

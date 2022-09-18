@@ -1,10 +1,9 @@
 // jshint esversion:6
-import "./cart-icon.styles.scss";
 import { useContext } from "react";
 
 import { ToggleCartContext } from "../../contexts/toggleCart.context";
 
-import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
+import { CartIconContainer, ShoppingIcon, ItemCount } from "./cart-icon.styles";
 
 const CartIcon = () => {
   const { setToggle, cartCount } = useContext(ToggleCartContext);
@@ -16,10 +15,10 @@ const CartIcon = () => {
   }
 
   return (
-    <div className="cart-icon-container" onClick={handleClick}>
+    <CartIconContainer onClick={handleClick}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">{cartCount}</span>
-    </div>
+      <ItemCount>{cartCount}</ItemCount>
+    </CartIconContainer>
   );
 };
 

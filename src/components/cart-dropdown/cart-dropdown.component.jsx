@@ -23,9 +23,13 @@ const CartDropdown = () => {
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
-        {cartItems.map((item) => {
-          return <CartItem cartItem={item} key={item.id} />;
-        })}
+        {cartItems.length ? (
+          cartItems.map((item) => {
+            return <CartItem cartItem={item} key={item.id} />;
+          })
+        ) : (
+          <span>Your cart is empty</span>
+        )}
       </div>
       <Button children="CHECKOUT" onClick={handleCheckout} />
     </div>

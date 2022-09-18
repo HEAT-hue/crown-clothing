@@ -3,6 +3,8 @@ import "./category-menu.styles.scss";
 
 import CategoryItem from "../category-item/category-item.component";
 
+import { CategoriesContainer } from "./category-menu.styles";
+
 function CategoryMenu() {
   const categories = [
     {
@@ -33,11 +35,11 @@ function CategoryMenu() {
   ];
 
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {categories.map((category) => {
         return <CategoryItem key={category.id} category={category} />;
       })}
-    </div>
+    </CategoriesContainer>
   );
 }
 

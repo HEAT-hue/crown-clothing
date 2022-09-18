@@ -11,7 +11,12 @@ import { createUserDocumentFromAuth } from "../../utils/firebase/firestore.util"
 
 /* Import styles for this component */
 import Button from "../button/button.component";
-import "../sign-up/sign-up.styles.scss";
+import {
+  FormContainer,
+  FormInput,
+  TextSm,
+} from "../sign-in/sign-in.styles";
+import { H2, ButtonContainer } from "./sign-up.styles";
 
 function SignUp() {
   const displayNameRef = useRef();
@@ -64,59 +69,54 @@ function SignUp() {
   }
 
   return (
-    <form
+    <FormContainer
       onSubmit={(e) => {
         console.log("Form submitted");
         handleSubmit(e);
       }}
     >
-      <div className="form-container">
-        <h2>Sign up for free today</h2>
+      <H2>Sign up for free today</H2>
+      <p>
+        Use your <strong>work email</strong> to sign up
+      </p>
+      <FormInput
+        type="text"
+        placeholder="Display name"
+        ref={displayNameRef}
+        required
+      />
+      <FormInput
+        type="email"
+        placeholder="Work email"
+        ref={emailRef}
+        required
+      />
+      <FormInput
+        type="password"
+        placeholder="Password"
+        ref={passwordRef}
+        required
+      />
+      <FormInput
+        type="password"
+        placeholder="Password confirmation"
+        ref={passwordConfirmRef}
+        required
+      />
 
-        <p className="text-sec">
-          Use your <strong>work email</strong> to sign up
-        </p>
-
-        <input
-          className="form-input"
-          type="text"
-          placeholder="Display name"
-          ref={displayNameRef}
-          required
-        />
-        <input
-          className="form-input"
-          type="email"
-          placeholder="Work email"
-          ref={emailRef}
-          required
-        />
-        <input
-          className="form-input"
-          type="password"
-          placeholder="Password"
-          ref={passwordRef}
-          required
-        />
-        <input
-          className="form-input"
-          type="password"
-          placeholder="Password confirmation"
-          ref={passwordConfirmRef}
-          required
-        />
-
+      <ButtonContainer>
         <Button children="Sign UP" type="submit" />
+      </ButtonContainer>
 
-        <p className="text-sm">or sign up wih Google</p>
-
-        <Button
-          children="Sign Up with Google"
-          buttonType="google"
-          onClick={signUpWithGoogle}
-        />
-      </div>
-    </form>
+      <p>
+        <TextSm>or sign up wih Google</TextSm>
+      </p>
+      <Button
+        children="Sign Up with Google"
+        buttonType="google"
+        onClick={signUpWithGoogle}
+      />
+    </FormContainer>
   );
 }
 

@@ -12,7 +12,15 @@ import {
 
 /* Style sheets */
 import Button from "../button/button.component";
-import "./sign-in.styles.scss";
+
+/* Styled Components */
+import {
+  FormContainer,
+  FormInput,
+  TextSm,
+  ButtonContainer,
+  TextLg,
+} from "./sign-in.styles";
 
 function SignIn() {
   /* Define your refs */
@@ -56,48 +64,49 @@ function SignIn() {
   }
 
   return (
-    <form
+    <FormContainer
       onSubmit={(e) => {
         console.log("Form submitted");
         handleSubmit(e);
       }}
     >
-      <div className="form-container">
+      <ButtonContainer>
         <Button
           children="Sign In with Google"
           buttonType="google"
+          type="button"
           onClick={SignInWithGoogle}
         />
+      </ButtonContainer>
 
-        <p className="text-sec">or use your email to sign in</p>
+      <TextLg>or use your email to sign in</TextLg>
 
-        <input
-          className="form-input"
-          type="email"
-          placeholder="Work email"
-          ref={emailRef}
-          required
-        />
-        <input
-          className="form-input"
-          type="password"
-          placeholder="Password"
-          ref={passwordRef}
-          required
-        />
+      <FormInput
+        type="email"
+        placeholder="Work email"
+        ref={emailRef}
+        required
+      />
+      <FormInput
+        type="password"
+        placeholder="Password"
+        ref={passwordRef}
+        required
+      />
 
-        <Link className="text-sm" to="#">
-          I forgot my password
-        </Link>
+      <Link to="#">
+        <TextSm>I forgot my password</TextSm>
+      </Link>
 
+      <ButtonContainer>
         <Button type="submit">Sign IN</Button>
+      </ButtonContainer>
 
-        <p>
-          Don't have an account,
-          <Link to="/sign-up"> Sign Up here</Link>
-        </p>
-      </div>
-    </form>
+      <p>
+        Don't have an account,
+        <Link to="/sign-up"> Sign Up here</Link>
+      </p>
+    </FormContainer>
   );
 }
 

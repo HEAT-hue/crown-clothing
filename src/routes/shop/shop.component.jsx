@@ -1,27 +1,16 @@
 // jshint esversion:6
-/* React context import */
-import { useContext} from "react";
+import { Route, Routes } from "react-router-dom";
 
-/* Get styles*/
-import "./shop.styles.scss";
+import CategoriesPreview from "../categories-preview/categories-preview.component";
 
-/* Import created Product context */
-import { CategoriesContext } from "../../contexts/categories.context";
-
-import CategoryPreview from "../../components/category-preview/category-preview.component";
+import Category from "../category/category.component";
 
 function Shop() {
-  const { categoriesMap } = useContext(CategoriesContext);
-
   return (
-    <div className="shop-container">
-      {Object.keys(categoriesMap).map((title) => {
-        const products = categoriesMap[title];
-        return (
-          <CategoryPreview key={title} title={title} products={products} />
-        );
-      })}
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
   );
 }
 

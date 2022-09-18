@@ -23,10 +23,10 @@ function App() {
       <Route path="/" element={<Navigation />}>
         {/*Index attribute renders component when no matching url is parsed to parent*/}
         <Route index element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path="shop/*" element={<Shop />} />
+        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path="auth" element={<AuthPage />} />
+        <Route path="checkout" element={<CheckOutPage />} />
       </Route>
     </Routes>
   );

@@ -1,25 +1,28 @@
 // jshint esversion:6
-import "./category-preview.styles.scss";
-
 import ProductCard from "../product-card/product-card.component";
+
+import {
+CategoryPreviewContainer,
+TitleLink,
+Preview } from "./category-preview.styles"
 
 function CategoryPreview(props) {
   // destructure props
   const { title, products } = props;
 
   return (
-    <div className="category-preview-container">
+    <CategoryPreviewContainer>
       <h2>
-        <span className="title">{title.toUpperCase()}</span>
+        <TitleLink to={title}>{title.toUpperCase()}</TitleLink>
       </h2>
-      <div className="preview">
+      <Preview>
         {products
           .filter((_, index) => index < 4)
           .map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </div>
-    </div>
+      </Preview>
+    </CategoryPreviewContainer>
   );
 }
 

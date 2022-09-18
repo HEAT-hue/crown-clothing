@@ -1,10 +1,15 @@
 // jshint esversion:6
 /* Import React Components */
 import { useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 
 /* Import Styles, SVGs */
-import "./navigation.styles.scss";
+import {
+  StyledNavigationContianer,
+  NavLinkContainer,
+  NavLink,
+  LogoContainer,
+} from "./navigation.styles";
 import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 
 /* Import User Defined Components */
@@ -28,32 +33,28 @@ function Navigation() {
   }
 
   return (
-    <div>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+    <>
+      <StyledNavigationContianer>
+        <LogoContainer to="/">
           <CrownLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
+        </LogoContainer>
+        <NavLinkContainer>
           {/* URL gets replaced without refreshing the page */}
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={handleSignOut}>
+            <NavLink as="span" onClick={handleSignOut}>
               SIGN OUT
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              SIGN IN
-            </Link>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinkContainer>
         {toggle && <CartDropdown />}
-      </div>
+      </StyledNavigationContianer>
       {/* Render specific web page depending on matching url Clicked */}
       <Outlet />
-    </div>
+    </>
   );
 }
 

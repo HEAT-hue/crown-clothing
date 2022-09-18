@@ -1,22 +1,26 @@
-import "./category-item.styles.scss";
+// jshint esversion:6
+
+/* Get Styled components */
+import {
+  CategoryContainer,
+  BackgroundImage,
+  CategoryBodyContainer,
+  H2,
+  P,
+} from "./category-item.styles";
 
 function CategoryItem(props) {
   /*Destructure props*/
-  const { id, title, imageUrl } = props.category;
+  const { title, imageUrl } = props.category;
 
   return (
-    <div key={id} className="category-container">
-      <div
-        className="background-image"
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-        }}
-      ></div>
-      <div className="category-body-container">
-        <h2>{title}</h2>
-        <p>Shop Now</p>
-      </div>
-    </div>
+    <CategoryContainer>
+      <BackgroundImage bgImg={imageUrl} />
+      <CategoryBodyContainer>
+        <H2>{title}</H2>
+        <P>Shop Now</P>
+      </CategoryBodyContainer>
+    </CategoryContainer>
   );
 }
 
