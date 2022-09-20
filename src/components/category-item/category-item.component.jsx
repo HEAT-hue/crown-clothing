@@ -1,5 +1,7 @@
 // jshint esversion:6
 
+import { Link } from "react-router-dom";
+
 /* Get Styled components */
 import {
   CategoryContainer,
@@ -17,8 +19,10 @@ function CategoryItem(props) {
     <CategoryContainer>
       <BackgroundImage bgImg={imageUrl} />
       <CategoryBodyContainer>
-        <H2>{title}</H2>
-        <P>Shop Now</P>
+        <Link to={`/shop/${title}`}>
+          <H2>{title}</H2>
+          <P>Shop Now</P>
+        </Link>
       </CategoryBodyContainer>
     </CategoryContainer>
   );

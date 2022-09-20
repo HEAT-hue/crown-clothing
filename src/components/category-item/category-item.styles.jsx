@@ -13,14 +13,19 @@ export const BackgroundImage = styled.div`
 export const CategoryBodyContainer = styled.div`
   height: 90px;
   padding: 0 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   border: 1px solid black;
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* To enable child link component */
+  & > * {
+    text-align: center;
+  }
 `;
 
 export const CategoryContainer = styled.div`
